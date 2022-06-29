@@ -37,6 +37,11 @@ function NewCommentForm({ place, onSubmit }) {
         })
     }
 
+    const {currentUser} = useContext (UserContext)
+    if(!currentUser) {
+        return <p> You Must be logged in to leave a comment</p>
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="row">
